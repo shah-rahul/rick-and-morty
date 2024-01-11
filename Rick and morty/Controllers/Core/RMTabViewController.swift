@@ -12,7 +12,6 @@ final class RMTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabs()
-        // Do any additional setup after loading the view.
     }
     private func setUpTabs() {
         let charachtersVC = RMCharacterViewController()
@@ -27,6 +26,10 @@ final class RMTabBarController: UITabBarController {
         let locationTab = UINavigationController(rootViewController: locationsVC)
         let episodeTab = UINavigationController(rootViewController: episodesVC)
         let settingTab = UINavigationController(rootViewController: settingsVC)
+        charTab.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "person"), tag: 1)
+        locationTab.tabBarItem = UITabBarItem(title: "Locations", image: UIImage(systemName: "globe"), tag: 2)
+        episodeTab.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(systemName: "tv"), tag: 3)
+        settingTab.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
         
         for nav in [charTab,locationTab,episodeTab,settingTab] {
             nav.navigationBar.prefersLargeTitles = true
