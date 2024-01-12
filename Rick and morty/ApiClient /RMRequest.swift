@@ -18,7 +18,7 @@ final class RMRequest {
    private let endpoint : RMEndpoint
     
     /// path components ( not required )
-   private let pathComponents : Set<String>
+   private let pathComponents : [String]
     
     /// query parameters ( not required )
    private let queryParameters : [URLQueryItem]
@@ -53,7 +53,7 @@ final class RMRequest {
     ///   - endpoint: the endpoint based on enum
     ///   - pathComponents: the path and other specificatons collection
     ///   - queryParameter: the query parameters like name and status collection
-     init(endpoint: RMEndpoint, pathComponents: Set<String>=[], queryParameter: [URLQueryItem]=[]) {
+     init(endpoint: RMEndpoint, pathComponents: [String]=[], queryParameter: [URLQueryItem]=[]) {
         self.endpoint = endpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameter
@@ -61,5 +61,8 @@ final class RMRequest {
     
     /// generic get request ( as RMAPI is ony get )
     public let httpMethod = "GET"
-    
+}
+
+extension RMRequest {
+    static let listCharachters = RMRequest(endpoint: .character)
 }
